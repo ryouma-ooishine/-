@@ -7,10 +7,7 @@ class Page(models.Model):
     company_name = models.CharField(max_length=100,verbose_name="銘柄銘")
     buy_price = models.BigIntegerField(verbose_name="購入金額")
     buy_shares = models.BigIntegerField(verbose_name="株数")
-    sell_price = models.BigIntegerField(verbose_name="売却金額")
-    sell_shares = models.BigIntegerField(verbose_name="売却量")
     buy_day = models.DateField(verbose_name="購入日")
-    sell_day = models.DateField(verbose_name="売却日")
 
     def __str__(self):
         return self.title

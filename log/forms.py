@@ -4,4 +4,4 @@ from .models import Page
 class PageForm(ModelForm):
     class Meta:
         model = Page
-        fields = ['company_name','buy_day','buy_price', 'buy_shares','sell_day', 'sell_price', 'sell_shares']
+        fields = ['company_name', 'buy_day', 'buy_price', 'buy_shares']

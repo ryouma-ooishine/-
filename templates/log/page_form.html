@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8" />
-        <title>株取引記録アプリ</title>
-    </head>
+{% extends "base/base_log.html" %}
+{% block body %}
     <body>
         <h2>記録入力ページ</h2>
         <form method = "POST">
@@ -11,5 +7,5 @@
             {{ form.as_p }}
             <button type="submit">保存</button>
         </form>
-    </body>
-</html>
+
+{% endblock %}

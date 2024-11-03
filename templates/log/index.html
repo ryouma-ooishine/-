@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="utf-8" />
-    <title>株取引記録アプリ</title>
-</head>
-
-<body>
-    <h1>株取引記録アプリ</h1>
+{% extends "base/base_log.html" %}
+{% block body %}
+<body class="background-container">
+    <h1 class="title">株取引記録アプリ</h1>
+ 
     <br>
-    <a href="{% url 'log:page_create' %}">記録を書く</a>
+    <a class="form" href="{% url 'log:page_create' %}">記録を書く</a>
 
 </body>
-
-</html>
+{% endblock %}
