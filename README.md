@@ -19,6 +19,9 @@
 
 ## アプリ使用方法
 
+
+## デプロイ
+https://ryouma.pythonanywhere.com/log/
 ## 参考資料
 
 [【Django】PythonでWebアプリを作ろう！1時間半でDjangoの基本を学ぶ 〜 Webフレームワーク初心者向け 〜] <https://youtu.be/r9QUdzVGHJU?si=YhjgxL79nSovgrNl>
