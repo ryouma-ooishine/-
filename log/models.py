@@ -3,12 +3,15 @@ import uuid
 # Create your models here.
 
 class Page(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    company_name = models.CharField(max_length=100)
-    buy_price = models.BigIntegerField()
-    buy_shares = models.BigAutoField()
-    sell_price = models.BigIntegerField()
-    sell_shares = models.BigAutoField()
-    buy_day = models.DateField()
-    sell_day = models.DateField()
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name="ID")
+    company_name = models.CharField(max_length=100,verbose_name="銘柄銘")
+    buy_price = models.BigIntegerField(verbose_name="購入金額")
+    buy_shares = models.BigIntegerField(verbose_name="株数")
+    sell_price = models.BigIntegerField(verbose_name="売却金額")
+    sell_shares = models.BigIntegerField(verbose_name="売却量")
+    buy_day = models.DateField(verbose_name="購入日")
+    sell_day = models.DateField(verbose_name="売却日")
+
+    def __str__(self):
+        return self.title
 

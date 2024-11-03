@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <title>株取引記録アプリ</title>
+    </head>
+    <body>
+        <h2>記録入力ページ</h2>
+        <form method = "POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">保存</button>
+        </form>
+    </body>
+</html>
