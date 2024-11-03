@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect # type: ignore
 from django.views import View # type: ignore
 from datetime import datetime
-from zoneinfo import ZoneInfo
+import pytz
 from .models import Page
 from .forms import PageForm
 from django.views.generic import ListView
@@ -10,7 +10,7 @@ from django.views.generic import ListView
 class IndexView(View):
     def get(self, request):
         datetime_now = datetime.now(
-            ZoneInfo("Asia/Tokyo")
+            pytz.timezone("Asia/Tokyo")
         ).strftime("%Y年%月%d日 %H:%M:%S")
         return render(
             request, "log/index.html",{"datetime_now":datetime_now})
