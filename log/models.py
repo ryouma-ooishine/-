@@ -10,5 +10,5 @@ class Page(models.Model):
     buy_day = models.DateField(verbose_name="購入日")
 
     def __str__(self):
-        return self.title
+        return self.company_name
 
