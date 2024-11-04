@@ -5,7 +5,12 @@
         <h3>購入した銘柄を入力してください。</h3>
         <form method = "POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <p>銘柄名:{{ form.company_name }}</p>
+            <p>購入日:{{ form.buy_day }}</p>
+            <p>購入金額:{{ form.buy_price }}</p>
+            <p>購入株数:{{ form.buy_shares }}</p>
+            <p>購入理由:</p>
+            <p>{{ form.buy_reason }}</p>
             <button type="submit">保存</button>
         </form>
 

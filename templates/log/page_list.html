@@ -1,15 +1,22 @@
 {% extends "base/base_log.html" %}
 {% load custom_filters %}
+{% load static %}
 {% block body %}
-    <body>
-        <table border="1">
+
+<body>
+    <h3>保有株一覧</h3>
+    <table border="1">
+        <thead>
             <tr>
-              <th>企業名</th>
-              <th>購入金額</th>
-              <th>保有株数</th>
-              <th>総額</th>
-              <th>購入日</th>
+                <th>企業名</th>
+                <th>購入金額</th>
+                <th>保有株数</th>
+                <th>総額</th>
+                <th>購入日</th>
+                <th>購入理由</th>
             </tr>
+        </thead>
+        <tbody>
             {% for page in page_list %}
             <tr>
                 <td>{{ page.company_name }}</td>
@@ -17,8 +24,10 @@
                 <td>{{ page.buy_shares }}</td>
                 <td>{{ page.buy_price|multiply:page.buy_shares }}円</td>
                 <td>{{ page.buy_day }}</td>
+                <td>{{ page.buy_reason }}</td>
             </tr>
             {% endfor %}
-        </table>
-    </body>
+        </tbody>
+    </table>
+</body>
 {% endblock %}

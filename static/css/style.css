@@ -8,16 +8,35 @@
 }
 
 .app_title {
-    color: aqua;
-    font-size: 150px;
+    font-size: 110px;
     font-weight: bold;
+    padding: .5em .7em;
+    border-left: 5px solid #2589d0;
+    border-bottom: 3px solid #d2d2d2;
+    background-color: #f2f2f2;
+    color: #333333;
 }
 
-.buy_form{
+.nextpg {
     font-size: 50px;
     font-weight: bold;
-    color: rgb(239, 169, 241)
+    text-decoration: none;
+    --btn-color: #64e0fc;
+    /*ボタンの色*/
+    border-color: var(--btn-color);
+    color: var(--btn-color);
 }
+
+.nextpg:hover {
+    background-color: var(--btn-color);
+    color: #ffffff;
+}
+
+th,
+td {
+    padding: 5px 10px;
+}
+
 form {
     background-color: #f9f9f9;
     padding: 20px;
@@ -45,4 +64,60 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    color: #343a40;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tr:last-child td {
+    border-bottom: none;
 }
