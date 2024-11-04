@@ -5,6 +5,7 @@
 
 <body>
     <h3>保有株一覧</h3>
+    <p><a href="{% url 'log:index' %}">ホーム</a></p>
     <table border="1">
         <thead>
             <tr>
@@ -14,6 +15,7 @@
                 <th>総額</th>
                 <th>購入日</th>
                 <th>購入理由</th>
+                <th>編集ボタン</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +27,7 @@
                 <td>{{ page.buy_price|multiply:page.buy_shares }}円</td>
                 <td>{{ page.buy_day }}</td>
                 <td>{{ page.buy_reason }}</td>
+                <td><a href="{% url 'log:page_update' page.id %}">編集</a></td>
             </tr>
             {% endfor %}
         </tbody>

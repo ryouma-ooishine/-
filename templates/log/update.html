@@ -1,0 +1,17 @@
+{% extends "base/base_log.html" %}
+{% block body %}
+    <body>
+        <h2 class="buy_page">情報更新ページ</h2>
+        <h3>変更する情報を選択して入力してください。</h3>
+        <form method = "POST">
+            {% csrf_token %}
+            <p>銘柄名:{{ form.company_name }}</p>
+            <p>購入日:{{ form.buy_day }}</p>
+            <p>購入金額:{{ form.buy_price }}</p>
+            <p>購入株数:{{ form.buy_shares }}</p>
+            <p>購入理由:</p>
+            <p>{{ form.buy_reason }}</p>
+            <button type="submit">更新</button>
+        </form>
+
+{% endblock %}

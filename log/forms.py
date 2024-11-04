@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from .models import Page
 from django import forms
+from .models import Log
 
 class PageForm(ModelForm):
     class Meta:
@@ -13,3 +14,4 @@ class PageForm(ModelForm):
                 'style': 'width: 100%;' 
             })
         }
+

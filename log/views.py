@@ -1,10 +1,11 @@
-from django.shortcuts import render,redirect 
+from django.shortcuts import render,redirect ,get_object_or_404
 from django.views import View 
 from datetime import datetime
 import pytz
-from .models import Page
+from .models import Page, Log
 from .forms import PageForm
-from django.views.generic import ListView
+from django.views.generic import ListView,UpdateView
+from django.urls import reverse  # reverseをインポート
 
 class IndexView(View):
     def get(self, request):
@@ -40,6 +41,16 @@ class PageListView(ListView):
         return context
 
 
+
+class PageUpdateView(UpdateView):
+    model = Page
+    form_class = PageForm
+    template_name = "log/update.html"
+
+    def get_success_url(self):
+        return reverse("log:page_list") 
+
 index = IndexView.as_view()
 page_create = PageCreateView.as_view()
 page_list = PageListView.as_view()
+page_update = PageUpdateView.as_view()
