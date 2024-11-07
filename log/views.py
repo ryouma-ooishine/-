@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect ,get_object_or_404
 from django.views import View 
 from datetime import datetime
 import pytz
-from .models import Page, Log
-from .forms import PageForm
+from .models import Page
+from .forms import PageForm,SellForm
 from django.views.generic import ListView,UpdateView
 from django.urls import reverse  # reverseをインポート
 
@@ -50,7 +50,24 @@ class PageUpdateView(UpdateView):
     def get_success_url(self):
         return reverse("log:page_list") 
 
+class PageSellView(View):
+    def get(self, request, pk):
+        page = get_object_or_404(Page, id=pk)
+        form = SellForm(instance=page)
+        return render(request, "log/page_sell_form.html", {"form": form})
+
+    def post(self, request, pk):
+        page = get_object_or_404(Page, id=pk)
+        form = SellForm(request.POST, instance=page) 
+        if form.is_valid():
+            sold_page=form.save(commit=False)
+            sold_page.is_sell=True
+            sold_page.save()
+            return redirect("log:index")
+        return render(request, "log/page_sell_form.html", {"form": form})
+    
 index = IndexView.as_view()
 page_create = PageCreateView.as_view()
 page_list = PageListView.as_view()
 page_update = PageUpdateView.as_view()
+page_sell = PageSellView.as_view()

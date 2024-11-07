@@ -1,7 +1,6 @@
 from django.forms import ModelForm
 from .models import Page
 from django import forms
-from .models import Log
 
 class PageForm(ModelForm):
     class Meta:
@@ -15,3 +14,14 @@ class PageForm(ModelForm):
             })
         }
 
+class SellForm(ModelForm):
+    class Meta:
+        model = Page
+        fields = ["sell_price","sell_shares","sell_day","sell_reason"]
+        widgets = {
+            'sell_reason': forms.Textarea(attrs={
+                'placeholder': '売却理由を入力してください...',
+                'rows': 6,  
+                'style': 'width: 100%;' 
+            })
+        }

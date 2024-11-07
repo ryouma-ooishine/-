@@ -1,0 +1,16 @@
+{% extends "base/base_log.html" %}
+{% block body %}
+    <body>
+        <h2 class="sell_page">売却記録入力ページ</h2>
+        <
+        <form method = "POST">
+            {% csrf_token %}
+            <p>売却日:{{ form.sell_day }}</p>
+            <p>売却金額:{{ form.sell_price }}</p>
+            <p>売却株数:{{ form.sell_shares }}</p>
+            <p>売却理由:</p>
+            <p>{{ form.sell_reason }}</p>
+            <button type="submit">保存</button>
+        </form>
+
+{% endblock %}

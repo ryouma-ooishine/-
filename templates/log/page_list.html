@@ -16,10 +16,12 @@
                 <th>購入日</th>
                 <th>購入理由</th>
                 <th>編集ボタン</th>
+                <th>売却ページ</th>
             </tr>
         </thead>
         <tbody>
             {% for page in page_list %}
+            {% if not page.is_sell %}
             <tr>
                 <td>{{ page.company_name }}</td>
                 <td>{{ page.buy_price }}</td>
@@ -28,7 +30,9 @@
                 <td>{{ page.buy_day }}</td>
                 <td>{{ page.buy_reason }}</td>
                 <td><a href="{% url 'log:page_update' page.id %}">編集</a></td>
+                <td><a href="{% url 'log:page_sell' page.id %}">売却</a></td>
             </tr>
+            {% endif %}
             {% endfor %}
         </tbody>
     </table>
